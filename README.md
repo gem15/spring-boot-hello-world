@@ -5,7 +5,7 @@ This is a small Spring-Boot Hello World application to demonstrate a quick and s
 It has one endpoint which returns a JSON response containing the hostname and IP of the server and an obligatory hello world message. 
 
 ## Requirements
- * Java 1.8
+ * Java 11
  * Maven
  
 ## Using the API
