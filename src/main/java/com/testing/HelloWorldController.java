@@ -8,8 +8,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
-import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -42,5 +43,16 @@ public class HelloWorldController {
         LOG.info("Returning {}", response);
         return response;
     }
+@CrossOrigin
+    @GetMapping("/blog")
+    public String blog(){
+        System.out.println("from blog()");
+        return "from blog()";
+    }
 
+    @GetMapping("favicon.ico")
+    @ResponseBody
+    public String  returnNoFavicon() {
+        return "fuck";
+    }
 }
