@@ -1,3 +1,9 @@
+```bash
+./mvnw -Dmaven.test.skip=true clean package
+docker build -t gemdkr/hello-world:v0.3 .
+docker push gemdkr/hello-world:v0.3
+docker run -it --name hell -p 1000:8080 --rm gemdkr/hello-world:v0.3
+```
 # Spring Boot Hello World API
 
 This is a small Spring-Boot Hello World application to demonstrate a quick and simple API.

@@ -8,10 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * A very basic Hello World controller which returns the hostname.
@@ -20,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  */
 @RestController
+@RequestMapping("/api/v1")
 public class HelloWorldController {
 
     private static final Logger LOG = getLogger(HelloWorldController.class.getName());
@@ -33,6 +31,11 @@ public class HelloWorldController {
         return getResponse();
     }
 
+    @GetMapping(path = "/hell")
+    public Map<String, String> hell() throws UnknownHostException {
+        return getResponse();
+    }
+
     private Map<String, String> getResponse() throws UnknownHostException {
         String host = InetAddress.getLocalHost().getHostName();
         String ip = InetAddress.getLocalHost().getHostAddress();
@@ -43,7 +46,7 @@ public class HelloWorldController {
         LOG.info("Returning {}", response);
         return response;
     }
-@CrossOrigin
+
     @GetMapping("/blog")
     public String blog(){
         System.out.println("from blog()");
